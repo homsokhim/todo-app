@@ -51,19 +51,23 @@ export const HomePage = () => {
   const [todos, setTodos] = useState<Todo[] | null>(null);
   const { user } = useContext(AuthContext);
 
+  const subTodos = () => {
+      return onSnapshot(q, (querySnapshot) => {
+        const todos: Todo[] = [];
+        querySnapshot.forEach((doc) => {
+          const todoItem = {
+            id: doc.id,
+            ...doc.data(),
+          };
+          todos.push(todoItem as Todo);
+        });
+        setTodos(todos);
+      });
+  }
+
   const q = query(collection(db, "todos"), where("userId", "==", user));
   useEffect(() => {
-    const unsub = onSnapshot(q, (querySnapshot) => {
-      const todos: Todo[] = [];
-      querySnapshot.forEach((doc) => {
-        const todoItem = {
-          id: doc.id,
-          ...doc.data(),
-        };
-        todos.push(todoItem as Todo);
-      });
-      setTodos(todos);
-    });
+    const unsub = subTodos();
 
     return unsub;
   }, []);

@@ -1,4 +1,4 @@
-import { CardActions, CardContent, Card, Box, TextField } from "@mui/material";
+import {CardContent, Card, Box, TextField } from "@mui/material";
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import { KeyboardEvent, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
@@ -8,7 +8,7 @@ import { AuthContext } from "../../Providers/Auth";
 
 
 export const AddTodo = () => {
-  const [todoText, setTodosText] = useState(null);
+  // const [todoText, setTodosText] = useState(null);
   const { user } = useContext(AuthContext);
   
   const OnKeyPress = async (event: KeyboardEvent<HTMLInputElement>) => {

@@ -1,7 +1,6 @@
 import { createTheme } from '@mui/material';
 
 import { green, purple } from '@mui/material/colors';
-import { terminate } from 'firebase/firestore';
 
 export enum Theme {
     DARK = 'dark',
