@@ -18,7 +18,7 @@ type Props = {
 
 export const AppThemeContextProvider: FC<Props> = ({ children }) => {
   const AddOrRemoveBodyClass = (theme: Theme) => {
-    if (theme == Theme.DARK) {
+    if (theme === Theme.DARK) {
       document.body.classList.add("dark-theme");
     } else {
       document.body.classList.remove("dark-theme");

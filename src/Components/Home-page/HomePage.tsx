@@ -50,6 +50,10 @@ const HomePageButton: FC<HomePageButtonProps> = (props) => {
 export const HomePage = () => {
   const [todos, setTodos] = useState<Todo[] | null>(null);
   const { user } = useContext(AuthContext);
+  
+
+  const q = query(collection(db, "todos"), where("userId", "==", user));
+
 
   const subTodos = () => {
       return onSnapshot(q, (querySnapshot) => {
@@ -65,11 +69,12 @@ export const HomePage = () => {
       });
   }
 
-  const q = query(collection(db, "todos"), where("userId", "==", user));
+ 
   useEffect(() => {
-    const unsub = subTodos();
 
+    const unsub = subTodos();
     return unsub;
+
   }, []);
 
   const handleRadioCheck = (todo: Todo) => {
