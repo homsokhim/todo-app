@@ -50,7 +50,7 @@ const HomePageButton: FC<HomePageButtonProps> = (props) => {
 export const HomePage = () => {
   const [todos, setTodos] = useState<Todo[] | null>(null);
   const { user } = useContext(AuthContext);
-  
+
 
   const q = query(collection(db, "todos"), where("userId", "==", user));
 
@@ -67,7 +67,7 @@ export const HomePage = () => {
         });
         setTodos(todos);
       });
-  }
+  };
 
  
   useEffect(() => {
