@@ -10,7 +10,7 @@ function App() {
       <main>
         <Outlet />
       </main>
-      {/* <footer>&copy; 2023</footer> */}
+      <footer>&copy; 2023</footer>
     </Container>
   );
 }
