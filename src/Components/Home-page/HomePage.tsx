@@ -75,7 +75,7 @@ export const HomePage = () => {
     const unsub = subTodos();
     return unsub;
 
-  }, []);
+  });
 
   const handleRadioCheck = (todo: Todo) => {
     if (todo.id) {
